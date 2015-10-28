@@ -1,12 +1,30 @@
 // TouthweeSolutions.cpp : Defines the entry point for the console application.
-// 
-
+// Copyright (C) 2015 Tyler Humphrey https://github.com/Minedmaster/TouthweeSolutions/
+// Terms of use and more at README.md. You may not use this program without accepting these terms.
+// By using this program you aknowledge the terms and conditions located inside.
+// If the copy of the license is not included, you may not use this program. Offical copy located at https://github.com/Minedmaster/TouthweeSolutions/blob/master/README.md
 #include "stdafx.h"
 #include <iostream>
-#include <ctime>
+#include <ctime> 
 #include <string>
+#include <stdlib.h>
 using namespace std;
 
+void death() {
+	string menuchoice;
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout << "You died at: " << dt << endl;
+	cout << "Game over. Restart? (y or n)\n";
+	cin >> menuchoice;
+	if (menuchoice == "y") {
+		return;
+	}
+	else {
+		exit(0);
+		system("pause");
+	}
+}
 int main()
 {
 p1:
@@ -21,14 +39,14 @@ p1:
 	int orethisturn = 0;
 	int r = 0; //used in the random number gen
 	int replay = 5; //used as a life counter
-	int speaksebonics = 0;
-	cout << "Copyright (C) 2015 Tyler Humphrey\nTerms of use and more at README.md. By using this program you aknowledge the\n terms and conditions located inside.";
-	cout << "\nWelcome to Touthwee's Solutions!\nThis is a text adventure game based on a man who is looking to solve all the PC problems in the world.";
-		cout << "What would you like to do?\n1. Learn how to fix computers.\n2. Play minecwaft.\n";
+	int speaksebonics = 0; // used in option 4 in an encounter with a ghetto man on your way to the store and in other situations.
+	int downloadedpictures = 0; //used for an encounter when you bring someone home and attempt to watch a movie with them.
+	cout << "Copyright (C) 2015 Tyler Humphrey\nTerms of use and more at README.md.\n You may not use this program without accepting these terms.\nBy using this program you aknowledge the\n terms and conditions located inside.";
+	cout << "\nWelcome to Touthwee's Solutions!\nThis is a text adventure game based on a man who is looking to solve all the PC problems in the world.\n";
+		cout << "What would you like to do, learn how to fix computers(1), or play minecwaft(2)?\n";
 		cin >> menuchoice;
 	if (menuchoice == "1") {
-		cout << "Congrats! Now you can fix a pc!\n";
-		cout << "Would you like to go to play video games(1) or learn ebonics(2)?\n";
+		cout << "Congrats! Now you can fix a PC!\n";
 		goto choice1_1;
 	}
 	else if (menuchoice == "2") {
@@ -39,50 +57,68 @@ p1:
 		cout << "Enter 1 or 2!\n";
 		goto p1;
 	}
-choice1_1:
+choice1_1: //comes from learning to fix a pc
+	cout << "Would you like to go to play video games(1) or learn ebonics(2)?\n";
 	cin >> menuchoice;
 	if (menuchoice == "1") {
-		
-		
+		cout << "You played a great round of CSGO and ranked up to Silver 2! Great job!\n";
+		goto choice2_1;
 	}
 	else if(menuchoice == "2") {
-		cout << "You learned how to speak ebonics!";
+		cout << "You learned how to speak ebonics!\n";
 		speaksebonics = 1; //used to determine if you live in a later interaction.
-		cout << "What would you like to do?\n(1)Go to the store or \n";
-		cin >> menuchoice;
-		if (menuchoice == "1") {
-			cout << "You encounter a ghetto man on your way to the store.\n";
-			cout << "You walk past him but he grabs your shoulder and says...\n";
-			cout << "EY YO MAN YOU LOOK LIKE YOU KNOW HOW TO FIX COMPUTERS, FIX MY PC OR IMMA BLAST YOU\n";
-			cout << "Would you like to fix his PC(1), run(2), pull out your gun(3), or talk your way out of it.(4)\n";
-			goto choice3_2;
-		}
-		else if (menuchoice == "2") {
-
-		}
-		else {
-			cout << "Enter 1 or 2!\n";
-		}
+		goto choice2_2;
 	}
 	else {
 		cout << "Incorrect choice. Enter 1 or 2.\n";
 		goto choice1_1;
 	}
-choice3_2:
+choice2_1: //comes from playing video games at choice1_1_1
+	cout << "Would you like to go to the store(1) or look around the web for hiring companies(2)?" << endl;
+	cin >> menuchoice;
+	if (menuchoice == "1") {
+		cout << "You encounter a ghetto man on your way to the store.\n";
+		cout << "You walk past him but he grabs your shoulder and says...\n";
+		cout << "EY YO MAN YOU LOOK LIKE YOU KNOW HOW TO FIX COMPUTERS, FIX MY PC OR IMMA BLAST YOU\n";
+		goto choice3_1;
+	}
+	else if (menuchoice == "2") {
+		cout << "";
+	}
+	else {
+		cout << "Enter 1 or 2!\n";
+	}
+choice2_2: //comes from learning ebonics at choice1_1_2
+	cout << "What would you like to do?\n(1)Go to the store or stay at home and browse the web(2)?\n";
+	cin >> menuchoice;
+	if (menuchoice == "1") {
+		cout << "You encounter a ghetto man on your way to the store.\n";
+		cout << "You walk past him but he grabs your shoulder and says...\n";
+		cout << "EY YO MAN YOU LOOK LIKE YOU KNOW HOW TO FIX COMPUTERS, FIX MY PC OR IMMA BLAST YOU\n";
+		goto choice3_1;
+	}
+	else if (menuchoice == "2") {
+		cout << "You encounter some very racy pictures.";
+		goto choice3_2;
+	}
+	else {
+		cout << "Enter 1 or 2!\n";
+	}
+choice3_1: //coming from going to store at choice2_2_1
+	cout << "Would you like to fix his PC(1), run(2), pull out your gun(3), or talk your way out of it.(4)\n";
 	cin >> menuchoice;
 	if (menuchoice == "1") {
 		cout << "You give in and fix his PC.\n";
 	}
 	else if (menuchoice == "2") {
-		
+		cout << "You forget ghetto males are well trained in atheltics. You are able to escape around a corner for a moment, however \nthe man jumps off a nearby roof and shoots you in the head.";
+		death();
+		goto p1;
 	}
 	else if (menuchoice == "3") {
 		cout << "You pull out your gun, however, the ghetto man already has his pulled.\nYou die.\n";
-		death:
-		time_t now = time(0);
-		char* dt = ctime(&now);
-		cout << "You died at: " << dt << endl;
-		goto end;
+		death();
+		goto p1;
 	}
 	else if (menuchoice == "4") {
 		if (speaksebonics == 1) {
@@ -96,16 +132,27 @@ choice3_2:
 			cin >> response;
 			cout << "You say: " << response << endl;
 			cout << "You dead honkey.";
-			goto death;
+			death();
+			goto p1;
 		}
 	}
 	else {
 		cout << "Enter 1-4!\n";
-		goto choice3_2;
+		goto choice3_1;
 	}
-minecwaft: //what happens if you play minecraft
+choice3_2:
+	cout << "What would you like to do about these, close them and go to bed for the night(1) or download them for later(2)\n";
+	cin >> menuchoice;
+	if (menuchoice == "1") {
+		cout << "You clicked out of the pictures and go to bed for the night\n";
+	}
+	else if (menuchoice == "2") {
+		cout << "You download the pictures for later\n";
+		downloadedpictures = 1;
+	}
+minecwaft: //what happens if you play minecwaft
 		r = rand() % 100 + 1;
-		cout << "Welcome to Minecraft! Mine? (1 for Y 2 for N)\n";
+		cout << "Welcome to Minecwaft! Mine? (1 for Y 2 for N)\n";
 		cin >> menuchoice;
 			if (ore >= 1) {
 				cout << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
@@ -141,6 +188,7 @@ minecwaft: //what happens if you play minecraft
 				goto minecwaft2;
 			}
 			else {
+				cout << "Invalid Selection.\n";
 				goto minecwaft;
 			}
 minecwaft2: //what happens if you answer yes you'd like to mine
@@ -187,17 +235,20 @@ minecwaft2: //what happens if you answer yes you'd like to mine
 				}
 				goto minecwaft2;
 			}
+			else if (menuchoice == "exit") {
+				cout << "Are your sure? (y or n)\n";
+				cin >> menuchoice;
+				if (menuchoice == "n") {
+					goto minecwaft;
+				}
+				else {
+					system("pause");
+					return 0;
+				}
+			}
 			else {
+				cout << "Invalid Selection.\n";
 				goto minecwaft;
-			}
-end:
-			cout << "Game over. Restart? (y or n)\n";
-			cin >> menuchoice;
-			if (menuchoice == "y") {
-				goto p1;
-			}
-			else {
-				return 0;
 			}
   system("pause");
   return 0;
