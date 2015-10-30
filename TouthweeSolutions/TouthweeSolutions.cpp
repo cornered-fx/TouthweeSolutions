@@ -14,15 +14,21 @@ void death() {
 	string menuchoice;
 	time_t now = time(0);
 	char* dt = ctime(&now);
+	death:
 	cout << "You died at: " << dt << endl;
 	cout << "Game over. Restart? (y or n)\n";
 	cin >> menuchoice;
 	if (menuchoice == "y") {
 		return;
 	}
-	else {
+	else if (menuchoice == "n"){
 		exit(0);
 		system("pause");
+	}
+	else {
+		system("CLS");
+		cout << "Enter a valid option.\n";
+		goto death;
 	}
 }
 int main()
@@ -30,7 +36,12 @@ int main()
 p1:
 	string response;
 	string menuchoice;
-	int diamond = 0, ore = 0, iron = 0, gold = 0, redstone = 0, lapis = 0, orethisturn = 0;
+	int diamond = 0, stone = 0, wood = 0, ore = 0, iron = 0, gold = 0, redstone = 0, lapis = 0, orethisturn = 0, diamondpick = 0, goldpick = 0, ironpick = 0, stonepick = 0, woodpick = 0;
+	int diamonddurability = 600;
+	int goldpickdur = 500;
+	int ironpickdur = 400;
+	int stonepickdur = 100;
+	int woodpickdur = 50;
 	int r = 0; //used in the random number gen
 	int replay = 5; //used as a life counter
 	int speaksclearly = 0; // used in option 4 in an encounter with a  man on your way to the store and in other situations.
@@ -48,7 +59,8 @@ p1:
 		goto minecwaft;
 	}
 	else {
-		cout << "Enter 1 or 2!\n";
+		system("CLS");
+		cout << "Invalid option. Enter 1 or 2!\n";
 		goto p1;
 	}
 choice1_1: //comes from learning to fix a pc
@@ -77,7 +89,7 @@ choice2_1: //comes from playing video games at choice1_1_1
 		goto choice3_1;
 	}
 	else if (menuchoice == "2") {
-		cout << "You come across";
+		goto choice3_3;
 	}
 	else {
 		cout << "Enter 1 or 2!\n";
@@ -97,7 +109,9 @@ choice2_2: //comes from learning to speak clearly at choice1_1_2
 		goto choice3_2;
 	}
 	else {
+		system("CLS");
 		cout << "Enter 1 or 2!\n";
+		goto choice2_2;
 	}
 choice3_1: //coming from going to store at choice2_2_1
 	cout << "Would you like to fix his PC(1), run(2), pull out your gun(3), or talk your way out of it.(4)\n";
@@ -146,18 +160,58 @@ choice3_2:
 		cout << "You download the pictures for later\n";
 		downloadedpictures = 1;
 	}
-choice4_4:
+choice3_3:
+	cout << "You come across a company who advertises themselves as an IT company looking for a new employee with skills in PC Repair\n";
+	cout << "Would you like to call them and submit a resume? (y or n)\n";
+	cin >> menuchoice;
+	if (menuchoice == "y") {
 
+	}
+	else if (menuchoice == "n") {
+
+	}
+	else {
+		cout << "Enter a valid option! (y or n)";
+	}
+choice4_4:
+	
 minecwaft: //what happens if you play minecwaft
+		cout << "Welcome to Minecwaft!\n";
+		cout << "If you would like to craft, type c at any time.\n";
+	minecwaft2:
 		r = rand() % 100 + 1;
-		cout << "Welcome to Minecwaft! Mine? (1 for Y 2 for N)\n";
+		cout << "Mine? (1 for Y 2 for N)\n";
 		cin >> menuchoice;
 			if (ore >= 1) {
 				cout << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
 			}
+			if (menuchoice == "c") {
+				cout << "Crafting Options: ";
+				if (diamond >= 1) {
+
+				}
+				if (gold >= 1) {
+
+				}
+				if (iron >= 1) {
+
+				}
+				if (stone >=  1) {
+					cout;
+				}
+				if (wood >= 1) {
+
+				}
+				else {
+
+				}
+			}
 			if (menuchoice == "1") {
 				if (r == 1) {
 					cout << "You got some diamond !\n";
+					if (diamondpick == 1) {
+						cout << "You have a pick.";
+					}
 					diamond++;
 					ore++;
 					goto minecwaft2;
@@ -168,13 +222,13 @@ minecwaft: //what happens if you play minecwaft
 					iron++;
 					goto minecwaft2;
 				}
-				else if (r <= 21) {
+				else if (r <= 16) {
 					cout << "You got some Redstone\n";
 					ore++;
 					redstone++;
 					goto minecwaft2;
 				}
-				else if (r <= 31) {
+				else if (r <= 26) {
 					cout << "You got some gold\n";
 					ore++;
 					gold++;
@@ -187,66 +241,7 @@ minecwaft: //what happens if you play minecwaft
 			}
 			else {
 				cout << "Invalid Selection.\n";
-				goto minecwaft;
-			}
-minecwaft2: //what happens if you answer yes you'd like to mine
-		r = rand() % 100 + 1;
-		cout << "Mine? (1 for Y 2 for N)\n";
-		cin >> menuchoice;
-			if (ore >= 1) {
-				cout << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << endl;
-			}
-			if (menuchoice == "1") {
-				if (r == 1) {
-					cout << "You got some diamond !\n";
-					diamond++;
-					ore++;
-					goto minecwaft2;
-				}
-				else if (r <= 11) {
-					cout << "You got some Iron\n";
-					ore++;
-					iron++;
-					goto minecwaft2;
-				}
-				else if (r <= 16) {
-					cout << "You got some Gold\n";
-					ore++;
-					gold++;
-					goto minecwaft2;
-				}
-				else if (r <= 26) {
-					cout << "You got some Redstone\n";
-					ore++;
-					redstone++;
-					goto minecwaft2;
-				}
-				else if (r <= 31) {
-					cout << "You got some Lapis\n";
-					ore++;
-					lapis++;
-					goto minecwaft2;
-				}
-				else {
-					cout << "You got nothing.\n";
-					goto minecwaft2;
-				}
 				goto minecwaft2;
-			}
-			else if (menuchoice == "exit") {
-				cout << "Are your sure? (y or n)\n";
-				cin >> menuchoice;
-				if (menuchoice == "n") {
-					goto minecwaft;
-				}
-				else {
-					system("pause");
-					return 0;
-				}
-			}
-			else {
-				cout << "Invalid Selection.\n";
-				goto minecwaft;
 			}
   system("pause");
   return 0;
