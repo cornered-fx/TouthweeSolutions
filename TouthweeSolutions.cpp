@@ -131,7 +131,7 @@ int main()
     }
     else if (menuChoice == "4") {
         if (speaksClearly == 1) {
-            cout << "What are you going to say?: ";
+            cout << "What are you going to say?\n";
             cin >> response;
             cout << "You say: " << response << endl;
             cout << "Yeah whatever man if I catch you again you gonna fix my pc or die.";
@@ -147,7 +147,7 @@ int main()
         }
     }
     else {
-        cout << "Enter 1-4!n";
+        cout << "Enter 1-4!\n";
         goto choice3_1;
     }
     choice3_2:
@@ -188,19 +188,59 @@ int main()
     if (menuChoice == "c") {
         cout << "Crafting Options: ";
         if (diamond >= 1) {
-            
+			if (diamond >= 1) {
+
+			}
+			if (diamond >= 2) {
+
+			}
+			if (diamond >= 3) {
+
+			}
         }
         if (gold >= 1) {
-            
+			if (gold >= 1) {
+
+			}
+			if (gold >= 2) {
+
+			}
+			if (gold >= 3) {
+
+			}
         }
         if (iron >= 1) {
-            
+			if (iron >= 1) {
+
+			}
+			if (iron >= 2) {
+
+			}
+			if (iron >= 3) {
+
+			}
         }
         if (stone >= 1) {
-            cout;
+			if (iron >= 1) {
+
+			}
+			if (iron >= 2) {
+
+			}
+			if (iron >= 3) {
+
+			}
         }
         if (wood >= 1) {
-            
+			if (wood >= 1) {
+
+			}
+			if (wood >= 2) {
+
+			}
+			if (wood >= 3) {
+
+			}
         }
         else {
             
