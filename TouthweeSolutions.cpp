@@ -46,7 +46,7 @@ int main()
     int replay = 5; //used as a life counter
     int speaksClearly = 0; // used in option 4 in an encounter with a man on your way to the store and in other situations.
     int downloadedPictures = 0; //used for an encounter when you bring someone home and attempt to watch a movie with them.
-    cout << "Copyright (C) 2015 Tyler HumphreynTnTerms of use and more at README.md.\nYou may not use this program without accepting these terms.\nBy using this program you aknowledge the terms and conditions located inside.";
+    cout << "Copyright (C) 2015 Tyler HumphreynT\nTerms of use and more at README.md.\nYou may not use this program without accepting these terms.\nBy using this program you aknowledge the terms and conditions located inside.";
     cout << "\n\nWelcome to Touthwee's Solutions! This is a text adventure game based on a man who is looking to solve all the PC problems in the world.\n";
     cout << "What would you like to do, learn how to fix computers(1), or play minecwaft(2)?\n";
     cin >> menuChoice;
@@ -180,7 +180,7 @@ int main()
     cout << "If you would like to craft, type c at any time.\n";
     minecwaft2:
     r = rand() % 100 + 1;
-    cout << "Mine? (1 for Y 2 for N)n";
+    cout << "Mine? (1 for Y 2 for N)\n";
     cin >> menuChoice;
     if (ore >= 1) {
         cout << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
