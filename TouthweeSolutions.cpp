@@ -37,7 +37,7 @@ int main()
     string response;
     string menuChoice;
     int diamond = 0, stone = 0, wood = 0, ore = 0, iron = 0, gold = 0, redstone = 0, lapis = 0, oreThisTurn = 0, diamondPick = 0, goldPick = 0, ironPick = 0, stonePick = 0, woodPick = 0;
-    int diamonddurability = 600;
+    int diamondPickDurability = 600;
     int goldPickDurability = 500;
     int ironPickDurability = 400;
     int stonePickDurability = 100;
