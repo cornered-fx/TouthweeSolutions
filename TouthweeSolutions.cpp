@@ -36,12 +36,10 @@ int main()
     p1:
     string response;
     string menuChoice;
-    int diamond = 0, stone = 0, wood = 0, ore = 0, iron = 0, gold = 0, redstone = 0, lapis = 0, oreThisTurn = 0, diamondPick = 0, goldPick = 0, ironPick = 0, stonePick = 0, woodPick = 0;
-    int diamondPickDurability = 600;
-    int goldPickDurability = 500;
-    int ironPickDurability = 400;
-    int stonePickDurability = 100;
-    int woodPickDurability = 50;
+	int diamond = 0, stone = 0, wood = 0, ore = 0, iron = 0, gold = 0, redstone = 0, lapis = 0, oreThisTurn = 0, diamondSword = 0,
+		diamondShovel = 0, diamondPick = 0, goldPick = 0, goldShovel = 0, goldSword = 0, ironPick = 0, ironShovel = 0, ironSword = 0,
+		stonePick = 0, stoneShovel = 0, stoneSword = 0, woodPick = 0, woodShovel = 0, woodSword = 0, diamondPickDurability = 0, goldPickDurability = 0, 
+		ironPickDurability = 0, stonePickDurability = 0, woodPickDurability = 0;
     int r = 0; //used in the random number gen
     int replay = 5; //used as a life counter
     int speaksClearly = 0; // used in option 4 in an encounter with a man on your way to the store and in other situations.
@@ -184,74 +182,134 @@ int main()
     cin >> menuChoice;
     if (ore >= 1) {
         cout << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
-    }
-    if (menuChoice == "c") {
-        cout << "Crafting Options: ";
-        if (diamond >= 1) {
+		if (menuChoice == "c") {
+			cout << "Crafting Options.\nType the abbrivation for what you would like to craft I.E. dpick or dshovel\n";
 			if (diamond >= 1) {
-
+				if (diamond >= 1) {
+					cout << "Diamond Spade ";
+				}
+				if (diamond >= 2) {
+					cout << "Diamond Sword ";
+					diamondPick++;
+					diamond -= 3;
+				}
+				if (diamond >= 3) {
+					cout << "Diamond Pick ";
+					diamondPick++;
+					diamondPickDurability += 600;
+					diamond -= 3;
+				}
 			}
-			if (diamond >= 2) {
-
-			}
-			if (diamond >= 3) {
-
-			}
-        }
-        if (gold >= 1) {
 			if (gold >= 1) {
+				if (gold >= 1) {
 
-			}
-			if (gold >= 2) {
+				}
+				if (gold >= 2) {
 
-			}
-			if (gold >= 3) {
+				}
+				if (gold >= 3) {
 
+				}
 			}
-        }
-        if (iron >= 1) {
 			if (iron >= 1) {
+				if (iron >= 1) {
 
-			}
-			if (iron >= 2) {
+				}
+				if (iron >= 2) {
 
-			}
-			if (iron >= 3) {
+				}
+				if (iron >= 3) {
 
+				}
 			}
-        }
-        if (stone >= 1) {
-			if (iron >= 1) {
+			if (stone >= 1) {
+				if (iron >= 1) {
 
-			}
-			if (iron >= 2) {
+				}
+				if (iron >= 2) {
 
-			}
-			if (iron >= 3) {
+				}
+				if (iron >= 3) {
 
+				}
 			}
-        }
-        if (wood >= 1) {
 			if (wood >= 1) {
+				if (wood >= 1) {
+
+				}
+				if (wood >= 2) {
+
+				}
+				if (wood >= 3) {
+
+				}
+			}
+			cout << endl;
+			cin >> menuChoice;
+			if (menuChoice == "dshovel") {
+				if (diamond >= 1) {
+					diamondShovel++;
+					diamond -= 3;
+					cout << "You crafted a Diamond Shovel!\n";
+				}
+			}
+			if (menuChoice == "dsword") {
+				if (diamond >= 2) {
+					diamondSword++;
+					diamond -= 2;
+				}
+			}
+			if (menuChoice == "dpick") {
+				if (diamond >= 3) {
+					diamondPick++;
+					diamond -= 3;
+				}
+			}
+			if (menuChoice == "ds") {
+				if (diamond >= 1) {
+					diamondPick++;
+					diamond -= 3;
+				}
+			}
+			else if (menuChoice == "") {
 
 			}
-			if (wood >= 2) {
-
-			}
-			if (wood >= 3) {
-
-			}
-        }
-        else {
-            
-        }
+		}
     }
+	else if (menuChoice == "c") {
+		cout << "You don't have enough materials!\n";
+	}
     if (menuChoice == "1") {
         if (r == 1) {
-            cout << "You got some diamond !\n";
+            cout << "You got some diamond!\n";
             if (diamondPick == 1) {
-                cout << "You have a pick.";
+				r = rand() % 100 + 1;
+                cout << "You have a pick. Use it?(y or n)\n";
+				cin >> menuChoice;
+				if (menuChoice == "y") {
+					diamondPickDurability--;
+					if (r == 10) {
+						diamond += 5;
+						ore++;
+						cout << "You got 5 diamonds!\n";
+						goto minecwaft2;
+					}
+				}
             }
+			if (ironPick == 1) {
+				r = rand() % 100 + 1;
+				cout << "You have a iron pick. Use it?(y or n)\n";
+				cin >> menuChoice;
+				if (menuChoice == "y") {
+					ironPickDurability--;
+					if (r == 10) {
+						diamond += 4;
+						ore++;
+						cout << "You got 4 diamonds!\n";
+						goto minecwaft2;
+					}
+				}
+			}
             diamond++;
             ore++;
             goto minecwaft2;
