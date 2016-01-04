@@ -1,8 +1,8 @@
 // TouthweeSolutions.cpp : Defines the entry point for the console application.
 // Copyright (C) 2015 Tyler Humphrey https://github.com/Minedmaster/TouthweeSolutions/
-// Terms of use and more at README.md. You may not use this program without accepting these terms.
+// Terms of use and more at LICENSE.md. You may not use this program without accepting these terms.
 // By using this program you aknowledge the terms and conditions located inside.
-// If the copy of the license is not included, you may not use this program. Offical copy located at https://github.com/Minedmaster/TouthweeSolutions/blob/master/README.md
+// If the copy of the license is not included, you may not use this program. Offical copy located at https://github.com/Minedmaster/TouthweeSolutions/blob/master/LICENSE.md
 #include <iostream>
 #include <ctime>
 #include <string>
@@ -103,7 +103,7 @@ int main()
         goto choice3_1;
     }
     else if (menuChoice == "2") {
-        cout << "You encounter some very nice pictures of cabo.";
+        cout << "You encounter some very nice pictures of a Mexican Villa.";
         goto choice3_2;
     }
     else {
@@ -180,30 +180,33 @@ int main()
     r = rand() % 100 + 1;
     cout << "Mine? (1 for Y 2 for N)\n";
     cin >> menuChoice;
-    if (ore >= 1) {
-        cout << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
+    if (ore >= 1 | stone >= 1) {
+        cout << "Stone:" << stone << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
 		if (menuChoice == "c") {
-			cout << "Crafting Options.\nType the abbrivation for what you would like to craft I.E. dpick or dshovel\n";
+			crafting:
+			system("CLS");
+			cout << "Stone:" << stone << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
+			cout << "Crafting Options.\nType the abbrivation for what you would like to craft I.E. dpick, dshovel, dsword\n";
 			if (diamond >= 1) {
-				if (diamond >= 1) {
-					cout << "Diamond Spade ";
-				}
+					cout << " Diamond Spade ";
 				if (diamond >= 2) {
-					cout << "Diamond Sword ";
-					diamondPick++;
-					diamond -= 3;
+					cout << " Diamond Sword ";
 				}
 				if (diamond >= 3) {
-					cout << "Diamond Pick ";
-					diamondPick++;
-					diamondPickDurability += 600;
-					diamond -= 3;
+					cout << " Diamond Pick ";
+				}
+			}
+			if (iron >= 1) {
+				cout << " Iron Shovel ";
+				if (iron >= 2) {
+
+				}
+				if (iron >= 3) {
+
 				}
 			}
 			if (gold >= 1) {
-				if (gold >= 1) {
-
-				}
+				cout << " Gold Shovel ";
 				if (gold >= 2) {
 
 				}
@@ -211,32 +214,17 @@ int main()
 
 				}
 			}
-			if (iron >= 1) {
-				if (iron >= 1) {
-
-				}
-				if (iron >= 2) {
-
-				}
-				if (iron >= 3) {
-
-				}
-			}
 			if (stone >= 1) {
-				if (iron >= 1) {
+				cout << " Stone Shovel ";
+				if (stone >= 2) {
 
 				}
-				if (iron >= 2) {
-
-				}
-				if (iron >= 3) {
+				if (stone >= 3) {
 
 				}
 			}
 			if (wood >= 1) {
-				if (wood >= 1) {
-
-				}
+				cout << " Wooden Shovel ";
 				if (wood >= 2) {
 
 				}
@@ -249,7 +237,7 @@ int main()
 			if (menuChoice == "dshovel") {
 				if (diamond >= 1) {
 					diamondShovel++;
-					diamond -= 3;
+					diamond -= 1;
 					cout << "You crafted a Diamond Shovel!\n";
 				}
 			}
@@ -262,17 +250,105 @@ int main()
 			if (menuChoice == "dpick") {
 				if (diamond >= 3) {
 					diamondPick++;
+					diamondPickDurability += 300;
 					diamond -= 3;
 				}
 			}
-			if (menuChoice == "ds") {
-				if (diamond >= 1) {
-					diamondPick++;
-					diamond -= 3;
+			if (menuChoice == "ishovel") {
+				if (iron >= 1) {
+					ironShovel++;
+					iron -= 1;
+					cout << "You crafted a Diamond Shovel!\n";
+					goto crafting;
 				}
 			}
-			else if (menuChoice == "") {
-
+			if (menuChoice == "isword") {
+				if (iron >= 2) {
+					ironSword++;
+					iron -= 2;
+				}
+			}
+			if (menuChoice == "ipick") {
+				if (iron >= 3) {
+					ironPick++;
+					ironPickDurability += 100;
+					iron -= 3;
+				}
+			}
+			
+			if (menuChoice == "gshovel") {
+				if (gold >= 1) {
+					goldShovel++;
+					gold -= 1;
+					cout << "You crafted a Diamond Shovel!\n";
+					goto crafting;
+				}
+			}
+			if (menuChoice == "gsword") {
+				if (gold >= 2) {
+					goldSword++;
+					gold -= 2;
+				}
+			}
+			if (menuChoice == "gpick") {
+				if (gold >= 3) {
+					goldPick++;
+					goldPickDurability += 50;
+					gold -= 3;
+				}
+			}
+			
+			if (menuChoice == "sshovel") {
+				if (iron >= 1) {
+					ironShovel++;
+					iron -= 1;
+					cout << "You crafted a Diamond Shovel!\n";
+					goto crafting;
+				}
+			}
+			if (menuChoice == "ssword") {
+				if (iron >= 2) {
+					ironSword++;
+					iron -= 2;
+				}
+			}
+			if (menuChoice == "spick") {
+				if (stone >= 3) {
+					stonePick++;
+					stonePickDurability += 30;
+					stone -= 3;
+				}
+			}
+			
+			if (menuChoice == "wshovel") {
+				if (wood >= 1) {
+					woodShovel++;
+					wood -= 1;
+					cout << "You crafted a Diamond Shovel!\n";
+					goto crafting;
+				}
+			}
+			if (menuChoice == "wsword") {
+				if (wood >= 2) {
+					woodSword++;
+					wood -= 2;
+				}
+			}
+			if (menuChoice == "wpick") {
+				if (wood >= 3) {
+					woodPick++;
+					woodPickDurability += 10;
+					wood -= 3;
+				}
+			}
+			else {
+				cout << "Invalid choice! Exit and continue(1) or re-enter your choice(2).";
+				if (menuChoice == "1") {
+					goto minecwaft2;
+				}
+				else {
+					goto crafting;
+				}
 			}
 		}
     }
@@ -280,20 +356,21 @@ int main()
 		cout << "You don't have enough materials!\n";
 	}
     if (menuChoice == "1") {
-        if (r == 1) {
-            cout << "You got some diamond!\n";
+		if (r == 1) { //Diamond found!
+            cout << "You found some diamond!\n";
             if (diamondPick == 1) {
 				r = rand() % 100 + 1;
-                cout << "You have a pick. Use it?(y or n)\n";
+                cout << "You have a diamond pick. Use it?(y or n)\n";
 				cin >> menuChoice;
 				if (menuChoice == "y") {
 					diamondPickDurability--;
+					/*Implement enchanting later.
 					if (r == 10) {
-						diamond += 5;
+						diamond++;
 						ore++;
-						cout << "You got 5 diamonds!\n";
+						cout << "You got a diamonds!\n";
 						goto minecwaft2;
-					}
+					}*/
 				}
             }
 			if (ironPick == 1) {
@@ -302,20 +379,55 @@ int main()
 				cin >> menuChoice;
 				if (menuChoice == "y") {
 					ironPickDurability--;
+					/*Implement enchanting later.
 					if (r == 10) {
-						diamond += 4;
+						diamond++;
 						ore++;
-						cout << "You got 4 diamonds!\n";
+						cout << "You got a diamond!\n";
 						goto minecwaft2;
-					}
+					}*/
 				}
 			}
-            diamond++;
-            ore++;
-            goto minecwaft2;
+			else {
+				cout << "You need at least an iron pick to mine this!";
+				goto minecwaft2;
+			}
         }
         else if (r <= 11) {
-            cout << "You got some Iron\n";
+            if (diamondPick == 1) {
+				r = rand() % 100 + 1;
+                cout << "You have a diamond pick. Use it?(y or n)\n";
+				cin >> menuChoice;
+				if (menuChoice == "y") {
+					diamondPickDurability--;
+					/* Implement enchanting at some point.
+					if (r == 10) {
+						diamond++;
+						ore++;
+						cout << "You got a diamond!\n";
+						goto minecwaft2;
+					}*/
+				}
+            }
+			if (ironPick == 1) {
+				r = rand() % 100 + 1;
+				cout << "You have a iron pick. Use it?(y or n)\n";
+				cin >> menuChoice;
+				if (menuChoice == "y") {
+					ironPickDurability--;
+					/* Implement enchanting later.
+					if (r == 10) {
+						diamond++;
+						ore++;
+						cout << "You got a diamond!\n";
+						goto minecwaft2;
+					}*/
+				}
+			}
+			else {
+				cout << "You need at least an iron pick to mine this!";
+				goto minecwaft2;
+			}cout << "You got some Iron\n";
             ore++;
             iron++;
             goto minecwaft2;
@@ -333,7 +445,8 @@ int main()
             goto minecwaft2;
         }
         else {
-            cout << "You got nothing.\n";
+            cout << "You got stone.\n";
+			stone++;
         }
         goto minecwaft2;
     }
