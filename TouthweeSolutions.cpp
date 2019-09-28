@@ -307,7 +307,7 @@ int main()
 				}
 			}
 			else if (menuChoice == "ssword") {
-				if (iron >= 2) {
+				if (stone >= 2) {
 					stoneSword++;
 					stone -= 2;
 				}
