@@ -46,7 +46,7 @@ int main()
     int downloadedPictures = 0; //used for an encounter when you bring someone home and attempt to watch a movie with them.
     cout << "Copyright (C) 2015 Tyler Humphrey\nTerms of use and more at README.md.\nYou may not use this program without accepting these terms.\nBy using this program you aknowledge the terms and conditions located inside.";
     cout << "\n\nWelcome to Touthwee's Solutions! This is a text adventure game based on a man who is looking to solve all the PC problems in the world.\n";
-    cout << "What would you like to do, learn how to fix computers(1), or play minecwaft(2)?\n";
+    cout << "What would you like to do? Learn how to fix computers(1), or play minecwaft(2)?\n";
     cin >> menuChoice;
     if (menuChoice == "1") {
         cout << "Congrats! Now you can fix a PC!\n";
@@ -178,15 +178,15 @@ int main()
     cout << "If you would like to craft, type c at any time.\n";
     minecwaft2:
     r = rand() % 100 + 1;
-    cout << "Mine? (1 for Y 2 for N)\n";
+    cout << "Mine? (1 for Y 2 for N or C for craft)\n";
     cin >> menuChoice;
     if (ore >= 1 | stone >= 1) {
-        cout << "Stone:" << stone << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
+        cout << "Stone: " << stone << "\nDiamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
 		if (menuChoice == "c") {
 			crafting:
 			system("CLS");
-			cout << "Stone:" << stone << "Diamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
-			cout << "Crafting Options.\nType the abbrivation for what you would like to craft I.E. dpick, dshovel, dsword\n";
+			cout << "Stone: " << stone << "\nDiamond: " << diamond << "\nIron: " << iron << "\nGold: " << gold << "\nRedstone: " << redstone << "\nLapis Lazuli: " << lapis << "\nTotal Ore: " << ore << endl;
+			cout << "Crafting Options.\nType the abbreviation for what you would like to craft I.E. dpick, dshovel, dsword\n";
 			if (diamond >= 1) {
 					cout << " Diamond Spade ";
 				if (diamond >= 2) {
@@ -241,34 +241,34 @@ int main()
 					cout << "You crafted a Diamond Shovel!\n";
 				}
 			}
-			if (menuChoice == "dsword") {
+			else if (menuChoice == "dsword") {
 				if (diamond >= 2) {
 					diamondSword++;
 					diamond -= 2;
 				}
 			}
-			if (menuChoice == "dpick") {
+			else if (menuChoice == "dpick") {
 				if (diamond >= 3) {
 					diamondPick++;
 					diamondPickDurability += 300;
 					diamond -= 3;
 				}
 			}
-			if (menuChoice == "ishovel") {
+			else if (menuChoice == "ishovel") {
 				if (iron >= 1) {
 					ironShovel++;
 					iron -= 1;
-					cout << "You crafted a Diamond Shovel!\n";
+					cout << "You crafted a Iron Shovel!\n";
 					goto crafting;
 				}
 			}
-			if (menuChoice == "isword") {
+			else if (menuChoice == "isword") {
 				if (iron >= 2) {
 					ironSword++;
 					iron -= 2;
 				}
 			}
-			if (menuChoice == "ipick") {
+			else if (menuChoice == "ipick") {
 				if (iron >= 3) {
 					ironPick++;
 					ironPickDurability += 100;
@@ -276,21 +276,21 @@ int main()
 				}
 			}
 			
-			if (menuChoice == "gshovel") {
+			else if (menuChoice == "gshovel") {
 				if (gold >= 1) {
 					goldShovel++;
 					gold -= 1;
-					cout << "You crafted a Diamond Shovel!\n";
+					cout << "You crafted a Gold Shovel!\n";
 					goto crafting;
 				}
 			}
-			if (menuChoice == "gsword") {
+			else if (menuChoice == "gsword") {
 				if (gold >= 2) {
 					goldSword++;
 					gold -= 2;
 				}
 			}
-			if (menuChoice == "gpick") {
+			else if (menuChoice == "gpick") {
 				if (gold >= 3) {
 					goldPick++;
 					goldPickDurability += 50;
@@ -298,21 +298,21 @@ int main()
 				}
 			}
 			
-			if (menuChoice == "sshovel") {
-				if (iron >= 1) {
-					ironShovel++;
-					iron -= 1;
-					cout << "You crafted a Diamond Shovel!\n";
+			else if (menuChoice == "sshovel") {
+				if (stone >= 1) {
+					stoneShovel++;
+					stone -= 1;
+					cout << "You crafted a Stone Shovel!\n";
 					goto crafting;
 				}
 			}
-			if (menuChoice == "ssword") {
+			else if (menuChoice == "ssword") {
 				if (iron >= 2) {
-					ironSword++;
-					iron -= 2;
+					stoneSword++;
+					stone -= 2;
 				}
 			}
-			if (menuChoice == "spick") {
+			else if (menuChoice == "spick") {
 				if (stone >= 3) {
 					stonePick++;
 					stonePickDurability += 30;
@@ -320,21 +320,21 @@ int main()
 				}
 			}
 			
-			if (menuChoice == "wshovel") {
+			else if (menuChoice == "wshovel") {
 				if (wood >= 1) {
 					woodShovel++;
 					wood -= 1;
-					cout << "You crafted a Diamond Shovel!\n";
+					cout << "You crafted a Di amond Shovel!\n";
 					goto crafting;
 				}
 			}
-			if (menuChoice == "wsword") {
+			else if (menuChoice == "wsword") {
 				if (wood >= 2) {
 					woodSword++;
 					wood -= 2;
 				}
 			}
-			if (menuChoice == "wpick") {
+			else if (menuChoice == "wpick") {
 				if (wood >= 3) {
 					woodPick++;
 					woodPickDurability += 10;
